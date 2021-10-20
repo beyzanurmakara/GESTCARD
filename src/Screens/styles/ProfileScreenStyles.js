@@ -21,7 +21,7 @@ export default StyleSheet.create({
 		color: 'white',
 		fontSize: 20,
 		marginBottom: 25,
-		paddingTop: 25,
+		paddingTop: 20,
 		paddingHorizontal: 10
 	},
 	bottomContainer: {

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
+import { messageSelector } from '../../Redux/PopupRedux';
 
 import Card from '../Components/Card';
 import styles from '../styles/ProfileScreenStyles';
@@ -21,6 +23,15 @@ const ProfileScreenUI = props => {
 		},
 	]
 
+	const message = useSelector(messageSelector);
+	const [visible, setVisible] = useState(true);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setVisible(false)
+		}, 2000);
+	}, [])
+
 	const renderDataItem = ({ item, index }) => {
 		return (
 			<Card item={item} colors={colors[index]} />
@@ -31,6 +42,13 @@ const ProfileScreenUI = props => {
 		<View style={{ flex: 1 }}>
 			<View style={styles.topContainer}>
 				<View style={styles.topSeparator} />
+				{
+					visible ?
+						<View style={{ backgroundColor: '#27C67D', padding: 15, paddingHorizontal: 20, borderRadius: 30 }}>
+							<Text style={{ color: 'white', fontWeight: 'bold' }}>{message}</Text>
+						</View>
+						: null
+				}
 				<Text style={styles.header}>
 					<Text>GestCard ile</Text>
 					<Text style={{ fontWeight: "bold" }}> indirimlerden faydalanabilirsiniz.</Text>
