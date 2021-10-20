@@ -1,0 +1,15 @@
+{
+    "Code": 200,
+    "Message": "Successfull / Başarılı.",
+    "Data": {
+        "cardId": 10,
+        "applyType": 1,
+        "applyUserType": 1,
+        "typeName": "65 Yaş Üstü",
+        "typeDesc": "Geçiş Kartı",
+        "cardNo": "54E3333",
+        "balance": 125.00,
+        "isDealEnd": false,
+        "dealEndDate": ""
+    }
+}
