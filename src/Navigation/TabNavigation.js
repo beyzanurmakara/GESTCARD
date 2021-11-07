@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ProfileScreen from '../Screens/Profile/ProfileScreen';
 import Detail from '../Screens/Detail/DetailScreenUI';
 import CustomBack from './Components/CustomBack';
+import CategoriesScreen from '../Screens/Categories/CategoriesScreen';
+import HomeScreen from '../Screens/Home/HomeScreen';
 
 const Home = ({ navigation }) => {
 	return (
@@ -40,6 +42,30 @@ const Categories = ({ navigation }) => {
 	);
 }
 
+const CategoriesStack=createStackNavigator();
+const CategoriesStackScreen=()=>{
+	return (
+		<CategoriesStack.Navigator>
+			<CategoriesStack.Screen
+				name="categories"
+				component={CategoriesScreen}
+				options={{
+					title: 'CATEGORIES',
+					headerStyle: {
+						backgroundColor: '#001196',
+						height: 100,
+						// borderBottomColor: 'white',
+						// borderBottomWidth: 0.5,
+					},
+					headerTitleAlign: 'center',
+					headerTitleStyle: {
+						color: 'white'
+					},
+				}}
+			/>
+		</CategoriesStack.Navigator>
+	)
+}
 
 const Stack = createStackNavigator();
 const ProfileStack = ({ navigation }) => {
@@ -111,7 +137,7 @@ const TabNavigation = props => {
 		>
 			<Tabs.Screen
 				name="home"
-				component={Home}
+				component={HomeScreen}
 				options={{
 					headerShown: false,
 					tabBarIcon: ({ focused }) => (
@@ -190,8 +216,8 @@ const TabNavigation = props => {
 				}}
 			/>
 			<Tabs.Screen
-				name="categories"
-				component={Categories}
+				name="categoriesStack"
+				component={CategoriesStackScreen}
 				options={{
 					// // headerShown: true,
 					// headerTitle: 'GestCard Listesi',
